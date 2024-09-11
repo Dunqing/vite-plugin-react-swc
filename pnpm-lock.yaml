@@ -11,6 +11,9 @@ importers:
       '@swc/core':
         specifier: ^1.7.0
         version: 1.7.0
+      oxc-transform:
+        specifier: ^0.28.0
+        version: 0.28.0
     devDependencies:
       '@arnaud-barre/tnode':
         specifier: ^0.19.2
@@ -838,6 +841,46 @@ packages:
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
 
+  '@oxc-transform/binding-darwin-arm64@0.28.0':
+    resolution: {integrity: sha512-WBqUfFjr/6I5nrImc8Teo5lqM6SPCkxSjl59bJbSMNSeeDiO6TPqXNd8JmmLoFRIi834aPV0tcLNRs3R5k1cgA==}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@oxc-transform/binding-darwin-x64@0.28.0':
+    resolution: {integrity: sha512-9ndgXbENCHmYhS5py40f2OG5v17INO72UI+KvHCztejm1E2D0mKYOt+ZTp4H8uDkU1LmyQWX+60U2dXTTHBgWQ==}
+    cpu: [x64]
+    os: [darwin]
+
+  '@oxc-transform/binding-linux-arm64-gnu@0.28.0':
+    resolution: {integrity: sha512-5NZKi3DruTEtxUd/uHP1RXdnoB0vWZRZbOqTI96wf6RzWZ62djj1ywPb4fGESyPmsb+5I77p5o4yozVSs5LfAQ==}
+    cpu: [arm64]
+    os: [linux]
+
+  '@oxc-transform/binding-linux-arm64-musl@0.28.0':
+    resolution: {integrity: sha512-ZSU18gGHzDhrs34FrF6i8+TUkOBhphHLUc5QAlm+Qu77b3m+Q1Drqri5vc96E+TvrYBybCLvryOG+WwILCavBQ==}
+    cpu: [arm64]
+    os: [linux]
+
+  '@oxc-transform/binding-linux-x64-gnu@0.28.0':
+    resolution: {integrity: sha512-ozgoPjEUgU1UOHiZDwNzbNJQceDWBhsHYtzcNKkas7v5EPRegSLdSpQLJ8bj88wmS1XermL9/3vMe0+xfN3/nA==}
+    cpu: [x64]
+    os: [linux]
+
+  '@oxc-transform/binding-linux-x64-musl@0.28.0':
+    resolution: {integrity: sha512-HYMRAfsqjTDyN9bu8KhSMIF1mjRVogOgVkovW/Iz5G2JydzIse+ZEKR6lXx0lctIQxbFKW6TatQLWCoABGHQjw==}
+    cpu: [x64]
+    os: [linux]
+
+  '@oxc-transform/binding-win32-arm64-msvc@0.28.0':
+    resolution: {integrity: sha512-9vTEGSj+ZcNGTkQu/0WdRrK1qqYgiBm47UWXmlmPSPnbiZmFZ+hvkFG/3qwwYaAnhe486w6el3Vc4VoHtzCiKQ==}
+    cpu: [arm64]
+    os: [win32]
+
+  '@oxc-transform/binding-win32-x64-msvc@0.28.0':
+    resolution: {integrity: sha512-+RRend+n8iCULBVg1HyhPpXL2oD1UUuIgyY6R2IYQ3MDYHZ9pMvzgfZvr/qmYD5HbUUVK8RM8Ad4lVHa6Hp61g==}
+    cpu: [x64]
+    os: [win32]
+
   '@playwright/test@1.45.2':
     resolution: {integrity: sha512-JxG9eq92ET75EbVi3s+4sYbcG7q72ECeZNbdBlaMkGcNbiDQ4cAi8U2QP5oKkOx+1gpaiL1LDStmzCaEM1Z6fQ==}
     engines: {node: '>=18'}
@@ -1599,6 +1642,9 @@ packages:
     resolution: {integrity: sha512-1FlR+gjXK7X+AsAHso35MnyN5KqGwJRi/31ft6x0M194ht7S+rWAvd7PHss9xSKMzE0asv1pyIHaJYq+BbacAQ==}
     engines: {node: '>=12'}
 
+  oxc-transform@0.28.0:
+    resolution: {integrity: sha512-TxJhypZ9V6pFmApi/hyP0pX5jrxxJBH/GgXU9SJ7bFbfiA6W0GG7l5D+WMXixy8MBrs8WxoWBX5FCABhRfVgig==}
+
   parent-module@1.0.1:
     resolution: {integrity: sha512-GQ2EWRpQV8/o+Aw8YqtfZZPfNRWZYkbidE9k5rpl/hC3vtHHBfGm2Ifi6qWV+coDGkrUKZAxE3Lot5kcsRlh+g==}
     engines: {node: '>=6'}
@@ -2303,6 +2349,30 @@ snapshots:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
+
+  '@oxc-transform/binding-darwin-arm64@0.28.0':
+    optional: true
+
+  '@oxc-transform/binding-darwin-x64@0.28.0':
+    optional: true
+
+  '@oxc-transform/binding-linux-arm64-gnu@0.28.0':
+    optional: true
+
+  '@oxc-transform/binding-linux-arm64-musl@0.28.0':
+    optional: true
+
+  '@oxc-transform/binding-linux-x64-gnu@0.28.0':
+    optional: true
+
+  '@oxc-transform/binding-linux-x64-musl@0.28.0':
+    optional: true
+
+  '@oxc-transform/binding-win32-arm64-msvc@0.28.0':
+    optional: true
+
+  '@oxc-transform/binding-win32-x64-msvc@0.28.0':
+    optional: true
 
   '@playwright/test@1.45.2':
     dependencies:
@@ -3276,6 +3346,17 @@ snapshots:
   onetime@6.0.0:
     dependencies:
       mimic-fn: 4.0.0
+
+  oxc-transform@0.28.0:
+    optionalDependencies:
+      '@oxc-transform/binding-darwin-arm64': 0.28.0
+      '@oxc-transform/binding-darwin-x64': 0.28.0
+      '@oxc-transform/binding-linux-arm64-gnu': 0.28.0
+      '@oxc-transform/binding-linux-arm64-musl': 0.28.0
+      '@oxc-transform/binding-linux-x64-gnu': 0.28.0
+      '@oxc-transform/binding-linux-x64-musl': 0.28.0
+      '@oxc-transform/binding-win32-arm64-msvc': 0.28.0
+      '@oxc-transform/binding-win32-x64-msvc': 0.28.0
 
   parent-module@1.0.1:
     dependencies:

@@ -14,7 +14,8 @@
   },
   "packageManager": "pnpm@9.5.0",
   "dependencies": {
-    "@swc/core": "^1.7.0"
+    "@swc/core": "^1.7.0",
+    "oxc-transform": "^0.28.0"
   },
   "peerDependencies": {
     "vite": "^4 || ^5"

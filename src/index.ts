@@ -9,6 +9,7 @@ import {
   JscTarget,
   transform,
 } from "@swc/core";
+import { transform as oxcTransform, TransformResult } from 'oxc-transform';
 import { PluginOption, UserConfig, BuildOptions } from "vite";
 import { createRequire } from "module";
 
@@ -236,23 +237,32 @@ const transformWithOptions = async (
     : undefined;
   if (!parser) return;
 
-  let result: Output;
+  let result: TransformResult;
   try {
-    result = await transform(code, {
-      filename: id,
-      swcrc: false,
-      configFile: false,
-      sourceMaps: true,
-      jsc: {
-        target,
-        parser,
-        experimental: { plugins: options.plugins },
-        transform: {
-          useDefineForClassFields: true,
-          react: reactConfig,
-        },
-      },
-    });
+
+    result = oxcTransform(id,  code, {
+      react: {
+        importSource: options.jsxImportSource,
+        runtime: reactConfig.runtime,
+        ...reactConfig,
+        refresh: typeof reactConfig.refresh === 'boolean' ? {} : reactConfig.refresh,
+      }
+    })
+    // result = await transform(code, {
+    //   filename: id,
+    //   swcrc: false,
+    //   configFile: false,
+    //   sourceMaps: true,
+    //   jsc: {
+    //     target,
+    //     parser,
+    //     experimental: { plugins: options.plugins },
+    //     transform: {
+    //       useDefineForClassFields: true,
+    //       react: reactConfig,
+    //     },
+    //   },
+    // });
   } catch (e: any) {
     const message: string = e.message;
     const fileStartIndex = message.indexOf("╭─[");
