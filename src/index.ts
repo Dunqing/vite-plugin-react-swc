@@ -3,13 +3,13 @@ import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import { SourceMapPayload } from "module";
 import {
-  Output,
+  // Output,
   ParserConfig,
   ReactConfig,
   JscTarget,
-  transform,
+  // transform,
 } from "@swc/core";
-import { transform as oxcTransform, TransformResult } from 'oxc-transform';
+import { transform as oxcTransform } from "oxc-transform";
 import { PluginOption, UserConfig, BuildOptions } from "vite";
 import { createRequire } from "module";
 
@@ -218,7 +218,7 @@ RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
 const transformWithOptions = async (
   id: string,
   code: string,
-  target: JscTarget,
+  _target: JscTarget,
   options: Options,
   reactConfig: ReactConfig,
 ) => {
@@ -237,17 +237,17 @@ const transformWithOptions = async (
     : undefined;
   if (!parser) return;
 
-  let result: TransformResult;
+  let result: any;
   try {
-
-    result = oxcTransform(id,  code, {
+    result = oxcTransform(id, code, {
       react: {
         importSource: options.jsxImportSource,
         runtime: reactConfig.runtime,
         ...reactConfig,
-        refresh: typeof reactConfig.refresh === 'boolean' ? {} : reactConfig.refresh,
-      }
-    })
+        refresh:
+          typeof reactConfig.refresh === "boolean" ? {} : reactConfig.refresh,
+      },
+    });
     // result = await transform(code, {
     //   filename: id,
     //   swcrc: false,
