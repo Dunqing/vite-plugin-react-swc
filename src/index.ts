@@ -9,7 +9,7 @@ import {
   JscTarget,
   // transform,
 } from "@swc/core";
-import { transform as oxcTransform } from "oxc-transform";
+import { transform as oxcTransform } from "@oxc-transform/binding";
 import { PluginOption, UserConfig, BuildOptions } from "vite";
 import { createRequire } from "module";
 
@@ -148,7 +148,7 @@ const react = (_options?: Options): PluginOption[] => {
         const hasRefresh = refreshContentRE.test(result.code);
         if (!hasRefresh && !reactCompRE.test(result.code)) return result;
 
-        const sourceMap: SourceMapPayload = JSON.parse(result.map!);
+        const sourceMap: SourceMapPayload = result.map!;
         sourceMap.mappings = ";;" + sourceMap.mappings;
 
         result.code = `import * as RefreshRuntime from "${runtimePublicPath}";
@@ -240,12 +240,14 @@ const transformWithOptions = async (
   let result: any;
   try {
     result = oxcTransform(id, code, {
+      sourcemap: true,
       react: {
         importSource: options.jsxImportSource,
         runtime: reactConfig.runtime,
         ...reactConfig,
         refresh:
-          typeof reactConfig.refresh === "boolean" ? {} : reactConfig.refresh,
+        reactConfig.refresh ? {
+          } : undefined,
       },
     });
     // result = await transform(code, {
