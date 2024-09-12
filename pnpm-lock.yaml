@@ -14,9 +14,6 @@ importers:
       '@swc/core':
         specifier: ^1.7.0
         version: 1.7.0
-      oxc-transform:
-        specifier: file:///Users/qing/p/github/oxc/napi/transform
-        version: '@oxc-transform/binding@file:../oxc/napi/transform'
     devDependencies:
       '@arnaud-barre/tnode':
         specifier: ^0.19.2

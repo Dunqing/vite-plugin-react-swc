@@ -15,8 +15,7 @@
   "packageManager": "pnpm@9.5.0",
   "dependencies": {
     "@oxc-transform/binding": "file:/Users/qing/p/github/oxc/napi/transform",
-    "@swc/core": "^1.7.0",
-    "oxc-transform": "file:///Users/qing/p/github/oxc/napi/transform"
+    "@swc/core": "^1.7.0"
   },
   "peerDependencies": {
     "vite": "^4 || ^5"
